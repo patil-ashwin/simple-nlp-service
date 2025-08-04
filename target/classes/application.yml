@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: simple-chat-service
+
+  ai:
+    azure:
+      openai:
+        api-key: ${AZURE_OPENAI_API_KEY}
+        endpoint: ${AZURE_OPENAI_ENDPOINT}
+        chat:
+          options:
+            deployment-name: ${AZURE_OPENAI_DEPLOYMENT_NAME:gpt-4.1}
+            temperature: 0.7
+            max-tokens: 1000
+
+  server:
+    port: 8080
+
+  # LangFuse Configuration
+  langfuse:
+    secret-key: ${LANGFUSE_SECRET_KEY}
+    public-key: ${LANGFUSE_PUBLIC_KEY}
+    host: ${LANGFUSE_HOST:http://cloud.langfuse.com}
+
+  # Logging Configuration
+  logging:
+    level:
+      com.cognizant: DEBUG
+      org.springframework.ai: DEBUG
